@@ -47,6 +47,11 @@
                         <KeyBinding Gesture="Enter" Command="{Binding NavigateCommand}" />
                     </TextBox.KeyBindings>
                 </TextBox>
+                <TextBox Background="Transparent" Text="Lorem ipsum">
+                    <TextBox.KeyBindings>
+                        <KeyBinding Gesture="F2" Command="{Binding OpenWindowCommand}" />
+                    </TextBox.KeyBindings>
+                </TextBox>
             </DockPanel>
 
             <webview:WebView x:Name="webview" Address="{Binding CurrentAddress}" />

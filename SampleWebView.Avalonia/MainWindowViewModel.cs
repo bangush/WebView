@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Reactive;
+using Avalonia.Controls;
 using ReactiveUI;
 using WebViewControl;
 
@@ -48,6 +49,16 @@ namespace SampleWebView.Avalonia {
                 webview.EditCommands.Delete();
             });
 
+            OpenWindowCommand = ReactiveCommand.Create(() => {
+                var window = new Window();
+                window.Height = 100;
+                window.Width = 100;
+                window.Content = "HELLO!";
+                window.ShowActivated = false;
+
+                window.Show();
+            });
+
             PropertyChanged += OnPropertyChanged;
         }
 
@@ -84,5 +95,7 @@ namespace SampleWebView.Avalonia {
         public ReactiveCommand<Unit, Unit> SelectAllCommand { get; }
 
         public ReactiveCommand<Unit, Unit> DeleteCommand { get; }
+
+        public ReactiveCommand<Unit, Unit> OpenWindowCommand { get; }
     }
 }
